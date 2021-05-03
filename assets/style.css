@@ -4,7 +4,6 @@ body {
     height: 100vh;
   }
 
-
 .frame {
     position: absolute;
     top: 50%;
@@ -22,11 +21,6 @@ body {
 
 .frame:hover {
     background: #289167;
-}
-
-@keyframes line {
-    from {background: #fff;}
-    to {background: black;}
 }
 
 .center {
@@ -50,9 +44,59 @@ body {
 	background: #fff;
 	border-radius: 3px;
 	box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+    /*
     animation-name: line;
-    animation-duration: 1.5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
+    */
 }
+
+/*
+@keyframes line {
+    from {background: #fff;}
+    to {background: black;}
+}
+*/
+
+.line-1 {
+    animation-name: line-1;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    /* animation-iteration-count: infinite; */
+}
+.line-2 {
+    animation-name: line-2;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    /* animation-iteration-count: infinite; */
+}
+.line-3 {
+    animation-name: line-3;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    /*animation-iteration-count: infinite;*/
+}
+
+@keyframes line-1 {
+    0%   {background-color: blue; transform: rotate(0deg);}
+    25%  {background-color: red; transform: rotate(135deg);}
+    50%  {background-color: blue; transform: rotate(270deg);}
+    75%  {background-color: red; transform: rotate(405deg); }
+    100% {background-color: blue; transform: rotate(540deg);}
+  }
+  @keyframes line-2 {
+    0%   {background-color: blue; transform: rotate(0deg);}
+    25%  {background-color: red; transform: rotate(-135deg);}
+    50%  {background-color: blue; transform: rotate(-270deg);}
+    75%  {background-color: red; transform: rotate(-405deg);}
+    100% {background-color: blue; transform: rotate(-540deg);}
+  }
+  @keyframes line-3 {
+    0%   {background-color: blue; transform: rotate(0deg);}
+    25%  {background-color: red; transform: rotate(135deg);}
+    50%  {background-color: blue; transform: rotate(270deg);}
+    75%  {background-color: red; transform: rotate(405deg); }
+    100% {background-color: blue; transform: rotate(540deg);}
+  }
