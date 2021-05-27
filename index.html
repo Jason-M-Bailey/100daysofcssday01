@@ -1,19 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./assets/style.css">
-        <link rel="shortcut icon" type="image/icon" href="../100 Days CSS Challenge - Day 01/assets/images/cropped-sit-icon-jb.jpg">
-    </head>
-    <body>
-        <div class="frame">
-            <div class="center">
-                  <div class="box">
-                      <div class="line line-1"></div>
-                      <div class="line line-2"></div>
-                      <div class="line line-3"></div>
-                  </div>
-            </div>
-        </div>
-        <footer></footer>
-    </body>
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/icon"
+      href="../100 Days CSS Challenge - Day 01/assets/images/cropped-sit-icon-jb.jpg"
+    />
+  </head>
+  <style>
+    .frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      margin-top: -200px;
+      margin-left: -200px;
+      border-radius: 2px;
+      box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background: #17b382;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-btn {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    li {
+      width: 80px;
+      height: 8px;
+      background: white;
+      border-radius: 3px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: 0.5s ease;
+      opacity: 1;
+    }
+    
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+  </style>
+  <body>
+    <div class="frame">
+      <ul class="menu-btn">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script>
+      const openMenu = () => {
+        const menuBtn = document.querySelector(".menu-btn");
+        const firstLine = menuBtn.firstElementChild;
+        const secondLine = menuBtn.children[1];
+        const lastLine = menuBtn.lastElementChild;
+
+        menuBtn.addEventListener("click", () => {
+          if (!menuBtn.classList.contains("is-open")) {
+            firstLine.style.transform = "translateY(23px)";
+            lastLine.style.transform = "translateY(-23px)";
+            secondLine.style.transform = "scale(0)";
+
+            setTimeout(() => {
+              firstLine.style.transform = "translateY(23px) rotate(45deg)";
+              lastLine.style.transform = "translateY(-23px) rotate(135deg)";
+            }, 400);
+          } else {
+            firstLine.style.transform = "translateY(23px) rotate(0)";
+            lastLine.style.transform = "translateY(-23px) rotate(0)";
+
+            setTimeout(() => {
+              firstLine.style.transform = "translateY(0) rotate(0)";
+              lastLine.style.transform = "translateY(0) rotate(0)";
+              secondLine.style.transform = "scale(1)";
+            }, 400);
+          }
+          menuBtn.classList.toggle("is-open");
+        });
+      };
+
+      openMenu();
+    </script>
+  </body>
 </html>
